@@ -1,0 +1,12 @@
+# Node
+node_modules/
+.env
+
+# Xcode
+*.xcworkspace
+*.xcodeproj/project.xcworkspace
+DerivedData/
+*.DS_Store
+
+# Build
+build/
