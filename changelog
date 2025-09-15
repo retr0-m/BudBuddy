@@ -1,0 +1,124 @@
+
+⸻
+
+BudBuddy Project – 15.09.2025
+
+⸻
+
+Backend (Node.js + MongoDB)
+
+Initial Setup
+	•	Created backend.js with Express server.
+	•	Added dotenv for environment variables.
+	•	Installed and configured mongoose for MongoDB integration.
+	•	Connected backend to local MongoDB (mongosh) and tested connection.
+
+User Authentication
+	•	Created User.js Mongoose schema with email and password.
+	•	Added /register route:
+	•	Password hashing with bcrypt.
+	•	Validation: unique email.
+	•	Added /login route:
+	•	Password verification with bcrypt.compare.
+	•	JWT token generation for secure authentication.
+	•	Fixed issues where Swift could not decode _id or username:
+	•	Adjusted JSON response to always include _id, username, and email.
+	•	Removed duplicate /login routes.
+	•	Updated User.js schema to include username field.
+	•	Added instructions and commands to reset MongoDB users (db.users.deleteMany({})).
+
+Error Handling
+	•	Added proper error responses for:
+	•	Invalid credentials.
+	•	User not found.
+	•	Duplicate registrations.
+	•	Logged backend errors for easier debugging.
+
+⸻
+
+Frontend (SwiftUI)
+
+AuthViewModel
+	•	Centralized AuthViewModel to manage:
+	•	Current logged-in user (currentUser).
+	•	JWT token (token).
+	•	Async login and register methods.
+	•	Removed old loggedIn state variables.
+	•	SwiftUI views now observe authVM.currentUser for navigation changes.
+
+LoginView
+	•	Implemented Apple-style input fields:
+	•	Rounded corners, subtle icons in HStack, visible in light and dark mode.
+	•	Semi-transparent backgrounds (Color.white.opacity(0.25)).
+	•	Added input validation:
+	•	Email format check.
+	•	Password minimum 6 characters.
+	•	Displayed inline error messages:
+	•	Field-specific (under inputs).
+	•	General login error if backend fails.
+	•	Styled login button consistently with HomeView.
+	•	Wrapped in ReactiveBackgroundView and FloatingMoodBackground (sativa/indica).
+	•	Fixed navigation: no longer creates ContentView() inside LoginView; relies on authVM.currentUser in ContentView.
+
+RegisterView
+	•	Similar styling as LoginView with matching backgrounds and Apple-style inputs.
+	•	Added username field with validation (min 3 characters).
+	•	Error messages for email, password, username.
+	•	Handles backend registration errors.
+	•	Buttons styled to match LoginView.
+
+ContentView
+	•	Conditionally shows:
+	•	TabView with Home, Activities, Strains, Extras when authVM.currentUser exists.
+	•	LoginView when no user is logged in.
+	•	Passed authVM to all child views.
+	•	Reacts dynamically to authVM.currentUser updates, replacing login screen immediately after login.
+
+HomeView
+	•	Added profile button at top-right:
+	•	Displays initials or placeholder icon.
+	•	Navigates to ProfileView.
+	•	Added logout button in ProfileView:
+	•	Clears authVM.currentUser and authVM.token.
+	•	Layout fixes:
+	•	Safe area padding and spacers to avoid overlapping content.
+	•	Styled background consistent with other views.
+
+ProfileView
+	•	Shows actual user data from authVM.currentUser:
+	•	Username
+	•	Email
+	•	Profile initials fallback
+	•	Logout button added below user info.
+
+Styling / Visuals
+	•	Reactive backgrounds updated:
+	•	Light mode now has slightly darker bottom gradient to highlight FloatingMoodBackground.
+	•	.indica, .sativa, .hybrid gradients adjusted to match dark mode style.
+	•	Input fields made more visible in light mode.
+	•	Buttons and text standardized across LoginView, RegisterView, and HomeView.
+
+Additional Features
+	•	Created UserProfileProtocol:
+	•	Supports adding user description and other properties.
+	•	Error handling improvements:
+	•	Inline validation messages in login/register.
+	•	Backend error messages displayed clearly.
+
+Debugging & Utilities
+	•	Added console logs in SwiftUI to inspect login/register data.
+	•	Added curl/Postman examples for backend testing.
+	•	Commands to reset MongoDB user collection for clean testing.
+
+⸻
+
+Summary
+	•	Backend: Fully working auth system with JWT, password hashing, MongoDB integration, and proper error handling.
+	•	Frontend: Fully functional SwiftUI login/register flow with unified AuthViewModel, live updates, profile and logout functionality.
+	•	Styling: Consistent Apple-style inputs, reactive backgrounds, dark/light mode consistency, profile button.
+	•	Validation: Inline field and backend error messages added for user feedback.
+	•	User Experience: Immediate TabView access after login, proper navigation, profile and logout integrated.
+
+⸻
+
+If you want, I can also create a visual timeline/diagram showing all the major milestones and their dependencies, which can help for planning future features like buds pairing, strain details, or social interactions.
