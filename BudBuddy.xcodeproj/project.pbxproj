@@ -30,6 +30,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		220D34532E7766FA00EAFAC8 /* Backend */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Backend;
+			sourceTree = "<group>";
+		};
 		227E20672E6C8E920025E3BE /* BudBuddy */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = BudBuddy;
@@ -79,6 +84,7 @@
 				227E20752E6C8E930025E3BE /* BudBuddyTests */,
 				227E207F2E6C8E930025E3BE /* BudBuddyUITests */,
 				227E20662E6C8E920025E3BE /* Products */,
+				220D34532E7766FA00EAFAC8 /* Backend */,
 			);
 			sourceTree = "<group>";
 		};
@@ -154,6 +160,7 @@
 				227E207E2E6C8E930025E3BE /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
+				220D34532E7766FA00EAFAC8 /* Backend */,
 				227E207F2E6C8E930025E3BE /* BudBuddyUITests */,
 			);
 			name = BudBuddyUITests;

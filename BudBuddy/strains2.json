@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Blue Dream",
+    "race": "Hybrid",
+    "flavor": ["Sweet", "Berry"],
+    "effects": ["Relaxed", "Happy"],
+    "description": "Blue Dream is a hybrid strain with relaxing effects."
+  },
+  {
+    "name": "Sour Diesel",
+    "race": "Sativa",
+    "flavor": ["Diesel", "Pungent"],
+    "effects": ["Euphoric", "Creative"],
+    "description": "Sour Diesel is a fast-acting sativa strain."
+  }
+]
